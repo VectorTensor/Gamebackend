@@ -6,14 +6,20 @@ from .models import Profile
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
+
 # Create your views here.
 
-class ProfileViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
-    authentication_classes = (JWTAuthentication)
+# class ProfileViewSet(viewsets.ModelViewSet):
+#     permission_classes = (IsAuthenticated,)
+#     authentication_classes = (JWTAuthentication)
+#
+#     queryset = Profile.objects.all()
+#     serializer_class = ProfileSerializer
 
-    queryset = Profile.objects.all()
+class ProfileViewSet(viewsets.GenericViewSet, viewsets.mixins.CreateModelMixin, viewsets.mixins.RetrieveModelMixin):
     serializer_class = ProfileSerializer
-
+    queryset = Profile.objects.all()
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (JWTAuthentication,)
 
 
