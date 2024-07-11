@@ -1,10 +1,12 @@
 
 from django.urls import path, include
-from .views import TestView 
+from .routers import router
+
 
 urlpatterns = [
 
-        path('', TestView),
+        # path('', TestView),
+        path('',include(router.urls))
 
 ]
 
