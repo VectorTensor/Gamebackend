@@ -16,7 +16,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 #     queryset = Profile.objects.all()
 #     serializer_class = ProfileSerializer
 
-class ProfileViewSet(viewsets.GenericViewSet, viewsets.mixins.CreateModelMixin, viewsets.mixins.RetrieveModelMixin):
+class ProfileViewSet(viewsets.GenericViewSet, viewsets.mixins.CreateModelMixin, viewsets.mixins.ListModelMixin):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
     permission_classes = (IsAuthenticated,)

@@ -6,6 +6,6 @@ from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 
 router = routers.DefaultRouter()
 
-router.register(r'v1/Profiles',ProfileViewSet)
+router.register(r'v1/Profiles', ProfileViewSet)
 
 
